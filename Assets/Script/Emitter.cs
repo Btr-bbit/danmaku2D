@@ -28,6 +28,7 @@ public class Emitter : MonoBehaviour {
 
     private int nextBulletID = 0;
     private int bulletNumber;
+
     // Use this for initialization
     void Start () {
         bulletNumber = bullet.Length;
@@ -41,7 +42,11 @@ public class Emitter : MonoBehaviour {
     private void Emit()
     {
         if (tracking)
-            transform.LookAt(DanmakuManager.instance.player.transform);
+        {
+            transform.LookAt(Vector3.forward + gameObject.transform.position, DanmakuManager.instance.player.transform.position - gameObject.transform.position);
+            //transform.LookAt(DanmakuManager.instance.player.transform);
+        }
+            
         for (int i = 0; i < EmitNumber; i++)
         {
             GameObject obj;
@@ -49,6 +54,7 @@ public class Emitter : MonoBehaviour {
             obj.transform.Rotate(0,0,i * EmitAngle / EmitNumber - (EmitNumber - 1) * EmitAngle / (EmitNumber * 2));
             if(!worldSpace)obj.transform.parent = gameObject.transform;
         }
+
     }
 
     private void FixedUpdate()

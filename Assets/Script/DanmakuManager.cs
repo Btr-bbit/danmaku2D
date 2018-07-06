@@ -7,7 +7,7 @@ public class DanmakuManager : MonoBehaviour {
 
     public static DanmakuManager instance;
     [SerializeField]
-    public readonly GameObject player;
+    public GameObject player;
     
     public static bool IsOutOfBounds(Transform t)
     {

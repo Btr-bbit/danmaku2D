@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
     public float moveSpeed;
     //角色现在的移动方向
     public Vector3 moveDirection = Vector3.zero;
+    //玩家射击
 
     //上下左右移动对应按键
     private KeyCode moveLeftKey, moveRightKey, moveForwardKey, moveBackKey;
@@ -40,12 +41,12 @@ public class Player : MonoBehaviour {
         //transform.LookAt(Input.mousePosition);
         processMovement();
         processDodge();
-
         if (invincibleLayer < 0)
         {
             invincibleLayer = 0;
         }
 	}
+
 
     public bool isVincible()
     {

@@ -98,7 +98,7 @@ public class Player : MonoBehaviour {
     private IEnumerator __processDodge()
     {
         float passedTime = 0;
-        moveSpeed = dodgeSpeed.Evaluate(passedTime);
+        moveSpeed = dodgeSpeed.Evaluate(passedTime)*moveBaseSpeed;
         invincibleLayer += 1;
         bool flag = false;
         while (passedTime < totalDodgeTime)

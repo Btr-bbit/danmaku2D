@@ -5,7 +5,7 @@ using UnityEngine;
 
 //运动方程 :  位移=方向*Speed*速度曲线加权+Offset曲线加权
 //X为右方向，Y为前方向
-public class Move : MonoBehaviour {
+public class Move1 : MonoBehaviour {
 
     public float xSpeed = 0f;
     public float ySpeed = 1f;
@@ -17,7 +17,7 @@ public class Move : MonoBehaviour {
     // Use this for initialization
     public float time = 0;
     void Start () {
-
+        Debug.Log("created");
     }
 
     private void FixedUpdate()
@@ -42,7 +42,7 @@ public class Move : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D collider){
-        if (collider.tag == "Wall" || collider.tag == "Player")
+        if (collider.tag == "Wall" || collider.tag == "Enemy")
             Destroy(gameObject);
     }
 }

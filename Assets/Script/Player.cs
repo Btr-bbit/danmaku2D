@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour {
     //身上无敌效果层数（大于1时具有无敌）
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour {
     public float moveSpeed;
     //角色现在的移动方向
     public Vector3 moveDirection = Vector3.zero;
+    //角色持续跑动时触发动画效果间隔
+    public float animDelay;
     //玩家射击
 
     //上下左右移动对应按键
@@ -26,8 +29,16 @@ public class Player : MonoBehaviour {
     //闪避对应按键
     private KeyCode dodgeKey;
 
+    public UnityEvent onPlayerDodge;
+    public UnityEvent onPlayerContinuouslyMove;
+
     // Use this for initialization
     void Start () {
+        if (onPlayerDodge == null)
+            onPlayerDodge = new UnityEvent();
+        if (onPlayerContinuouslyMove == null)
+            onPlayerContinuouslyMove = new UnityEvent();
+        StartCoroutine(invokePlayerContinuouslyMove());
         //transform.LookAt(Input.mousePosition);
         moveSpeed = moveBaseSpeed;
         moveLeftKey = KeyCode.A;
@@ -46,7 +57,6 @@ public class Player : MonoBehaviour {
             invincibleLayer = 0;
         }
 	}
-
 
     public bool isVincible()
     {
@@ -97,6 +107,7 @@ public class Player : MonoBehaviour {
 
     private IEnumerator __processDodge()
     {
+        onPlayerDodge.Invoke();
         float passedTime = 0;
         moveSpeed = dodgeSpeed.Evaluate(passedTime)*moveBaseSpeed;
         invincibleLayer += 1;
@@ -115,5 +126,17 @@ public class Player : MonoBehaviour {
         }
         isDodging = false;
         moveSpeed = moveBaseSpeed;
+    }
+
+    public IEnumerator invokePlayerContinuouslyMove()
+    {
+        while (true)
+        {
+            if (moveDirection != Vector3.zero)
+            {
+                onPlayerContinuouslyMove.Invoke();
+            }
+            yield return new WaitForSeconds(animDelay);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class NewObjectOnDestroy : MonoBehaviour {
     public GameObject destroyAnimation;
     public GameObject[] newObjects;

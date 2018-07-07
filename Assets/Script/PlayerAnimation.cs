@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour {
     public GameObject runAnimation;
-    public float animDelay;
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(generateRunAnimation());
+        gameObject.GetComponent<Player>().onPlayerContinuouslyMove.AddListener(generateRunAnimation);
     }
 	
 	// Update is called once per frame
@@ -16,23 +15,13 @@ public class PlayerAnimation : MonoBehaviour {
 
 	}
 
-    private IEnumerator generateRunAnimation()
+    public void generateRunAnimation()
     {
-        if (runAnimation != null)
-        {
-            while (true)
-            {
-                Vector3 moveDirection = getMoveDirection();
-                Debug.Log(moveDirection);
-                if (moveDirection != Vector3.zero)
-                {
-                    Quaternion rot = Quaternion.identity;
-                    rot.SetFromToRotation(Vector3.right, moveDirection);
-                    Instantiate(runAnimation, gameObject.transform.position, rot);
-                }
-                yield return new WaitForSeconds(animDelay);
-            }
-        }
+        Vector3 moveDirection = getMoveDirection();
+        Debug.Log(moveDirection);
+        Quaternion rot = Quaternion.identity;
+        rot.SetFromToRotation(Vector3.right, moveDirection);
+        Instantiate(runAnimation, gameObject.transform.position, rot);
     }
 
     private Vector3 getMoveDirection()

@@ -26,8 +26,16 @@ public class Player : MonoBehaviour {
     //闪避对应按键
     private KeyCode dodgeKey;
 
+    public int hp;
+
+    private SpriteRenderer dodgeIndicator;
+
     // Use this for initialization
     void Start () {
+        hp = 99;
+        dodgeIndicator = transform.Find("dodge indicator").gameObject.GetComponent<SpriteRenderer>();
+        dodgeIndicator.enabled = false;
+
         //transform.LookAt(Input.mousePosition);
         moveSpeed = moveBaseSpeed;
         moveLeftKey = KeyCode.A;
@@ -91,6 +99,7 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonDown(1))
         {
             isDodging = true;
+            dodgeIndicator.enabled = true;
             StartCoroutine(__processDodge());
         }
     }
@@ -114,6 +123,12 @@ public class Player : MonoBehaviour {
             }
         }
         isDodging = false;
+        dodgeIndicator.enabled = false;
         moveSpeed = moveBaseSpeed;
+    }
+
+    public void hit(){
+        if (hp > 0 && !isDodging) --hp;
+        //if (hp == 0) Debug.Log("game over");
     }
 }

@@ -40,9 +40,4 @@ public class Move : MonoBehaviour {
         if (DanmakuManager.IsOutOfBounds(transform))
             Destroy(gameObject);
 	}
-
-    void OnTriggerEnter2D(Collider2D collider){
-        if (collider.tag == "Wall" || collider.tag == "Player")
-            Destroy(gameObject);
-    }
 }

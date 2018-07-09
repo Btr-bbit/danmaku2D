@@ -21,18 +21,22 @@ public class GunManager : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0)) 
         {
+            if (currentGun != null)
+            {
+                Destroy(currentGun);
+            }
             currentGun = Instantiate(basicGun);
             //currentGun.GetComponent<Emitter>().canFire = true;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             Destroy(currentGun);
+            currentGun = null;
         }
         if (Input.GetMouseButton(0)) 
         {
             currentGun.transform.position = gameObject.transform.position;
             currentGun.transform.LookAt(Vector3.forward + gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position);
-            Debug.Log(Input.mousePosition);       
         }
         //currentGun.transform.LookAt(Vector3.forward + gameObject.transform.position, Input.mousePosition() - gameObject.transform.position);
     }

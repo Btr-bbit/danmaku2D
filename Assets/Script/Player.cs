@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
 
     public UnityEvent onPlayerDodge;
     public UnityEvent onPlayerContinuouslyMove;
+    public int hp;
+    private SpriteRenderer dodgeIndicator;
 
     // Use this for initialization
     void Start () {
@@ -39,6 +41,11 @@ public class Player : MonoBehaviour {
         if (onPlayerContinuouslyMove == null)
             onPlayerContinuouslyMove = new UnityEvent();
         StartCoroutine(invokePlayerContinuouslyMove());
+
+        hp = 99;
+        dodgeIndicator = transform.Find("dodge indicator").gameObject.GetComponent<SpriteRenderer>();
+        dodgeIndicator.enabled = false;
+
         //transform.LookAt(Input.mousePosition);
         moveSpeed = moveBaseSpeed;
         moveLeftKey = KeyCode.A;
@@ -101,6 +108,7 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonDown(1))
         {
             isDodging = true;
+            dodgeIndicator.enabled = true;
             StartCoroutine(__processDodge());
         }
     }
@@ -125,6 +133,7 @@ public class Player : MonoBehaviour {
             }
         }
         isDodging = false;
+        dodgeIndicator.enabled = false;
         moveSpeed = moveBaseSpeed;
     }
 
@@ -138,5 +147,10 @@ public class Player : MonoBehaviour {
             }
             yield return new WaitForSeconds(animDelay);
         }
+    }
+    
+    public void hit(){
+        if (hp > 0 && !isDodging) --hp;
+        //if (hp == 0) Debug.Log("game over");
     }
 }

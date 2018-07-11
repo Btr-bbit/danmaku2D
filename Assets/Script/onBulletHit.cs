@@ -17,21 +17,26 @@ public class onBulletHit : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider){
 		switch (collider.tag){
 		case "Wall":
+            Destroy(gameObject);
 			break;
 		case "Player":
 			Player p = collider.GetComponent<Player>();
 			p.hit();
+            Destroy(gameObject);
 			break;
 		case "Enemy":
 			Destroy(collider.gameObject);
+            Destroy(gameObject);
 			break;
 		case "Bullet":
 			return;
+        case "Reward Collector":
+        case "Supply":
+            break;
 		default:
 			Debug.Log("onBulletHit.cs: OnTriggerEnter2D(Collider2D),colliderTag:" + collider.name);
 			break;
 		}
-		Destroy(gameObject);
         // if (collider.tag == "Wall" || collider.tag == "Player")
         //     Destroy(gameObject);
     }

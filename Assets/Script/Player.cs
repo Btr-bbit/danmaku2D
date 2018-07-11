@@ -153,4 +153,17 @@ public class Player : MonoBehaviour {
         if (hp > 0 && !isDodging) --hp;
         //if (hp == 0) Debug.Log("game over");
     }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject reward = collision.gameObject;
+        if (reward.tag == "Supply")
+        {
+            Destroy(reward);
+        }
+        else if (reward.tag == "Treasure")
+        {
+
+        }
+	}
 }

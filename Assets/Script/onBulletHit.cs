@@ -21,11 +21,12 @@ public class onBulletHit : MonoBehaviour {
 			break;
 		case "Player":
 			Player p = collider.GetComponent<Player>();
-			p.hit();
+			p.GetHit(gameObject);
             Destroy(gameObject);
 			break;
 		case "Enemy":
-			Destroy(collider.gameObject);
+            //Destroy(collider.gameObject);
+            collider.GetComponent<HPRecorder>().GetHit(gameObject.GetComponent<DamageController>().rawDamage);
             Destroy(gameObject);
 			break;
 		case "Bullet":

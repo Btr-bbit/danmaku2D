@@ -31,7 +31,6 @@ public class Player : MonoBehaviour {
 
     public UnityEvent onPlayerDodge;
     public UnityEvent onPlayerContinuouslyMove;
-    public int hp;
     private SpriteRenderer dodgeIndicator;
 
     // Use this for initialization
@@ -42,7 +41,6 @@ public class Player : MonoBehaviour {
             onPlayerContinuouslyMove = new UnityEvent();
         StartCoroutine(invokePlayerContinuouslyMove());
 
-        hp = 99;
         dodgeIndicator = transform.Find("dodge indicator").gameObject.GetComponent<SpriteRenderer>();
         dodgeIndicator.enabled = false;
 
@@ -65,7 +63,7 @@ public class Player : MonoBehaviour {
         }
 	}
 
-    public bool isVincible()
+    public bool isInvincible()
     {
         return (invincibleLayer > 0);
     }
@@ -149,9 +147,16 @@ public class Player : MonoBehaviour {
         }
     }
     
-    public void hit(){
-        if (hp > 0 && !isDodging) --hp;
-        //if (hp == 0) Debug.Log("game over");
+    public void GetHit(GameObject hazard){
+        if (isInvincible())
+        {
+            return;
+        }
+        float damage = hazard.GetComponent<DamageController>().rawDamage;
+        if (damage > 0)
+        {
+            gameObject.GetComponent<HPRecorder>().GetHit(hazard.GetComponent<DamageController>().rawDamage);
+        }
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)

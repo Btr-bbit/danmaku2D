@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class UpdateHP : MonoBehaviour {
 
 	private Text t;
-	private Player player;
+	private HPRecorder playerHP;
 	// Use this for initialization
 	void Start () {
 		GameObject p = GameObject.Find("小KUN");
 		if (p == null) Debug.Log("cannot find the player!");
-		player = p.GetComponent<Player>();
+        playerHP = p.GetComponent<HPRecorder>();
 
 		t = GetComponent<Text>();
 	}
@@ -22,6 +22,6 @@ public class UpdateHP : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		t.text = "HP: " + player.hp.ToString();
+		t.text = "HP: " + Mathf.Floor(playerHP.hp).ToString();
 	}
 }

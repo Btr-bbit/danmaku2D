@@ -701,6 +701,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4296534933971452, guid: 7e6e7ba92cb5a2244b2d8fb7f0ab9d39, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.9510566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296534933971452, guid: 7e6e7ba92cb5a2244b2d8fb7f0ab9d39, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.30901688
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e6e7ba92cb5a2244b2d8fb7f0ab9d39, type: 2}
   m_IsPrefabParent: 0
@@ -824,6 +832,7 @@ GameObject:
   - component: {fileID: 967455411}
   - component: {fileID: 967455413}
   - component: {fileID: 967455412}
+  - component: {fileID: 967455414}
   m_Layer: 8
   m_Name: "\u5C0FKUN"
   m_TagString: Player
@@ -934,7 +943,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  hp: 0
 --- !u!114 &967455411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGun: {fileID: 0}
-  basicGun: {fileID: 1572920611052026, guid: fb79df7add15cad45ad885a30b401f19, type: 2}
+  basicGun: {fileID: 1535151748130256, guid: 94de094801ab2e34b87df843e3956830, type: 2}
 --- !u!61 &967455412
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -982,6 +990,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &967455414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 967455407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc59e0b601bfecf4cbc97ab52876b6c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHPZero:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  hp: 100
+  modifier: 1
 --- !u!1001 &1012875334
 Prefab:
   m_ObjectHideFlags: 0

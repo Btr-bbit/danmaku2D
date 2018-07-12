@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50344271590699260}
   - component: {fileID: 114725520652249132}
   - component: {fileID: 114117543892709316}
+  - component: {fileID: 114689710487928462}
   m_Layer: 8
   m_Name: FlameThrowerBullet
   m_TagString: Bullet
@@ -159,6 +160,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0.05
+--- !u!114 &114689710487928462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1468566911814926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3ce6a2bd1151145b8721b4317eb28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawDamage: 1
 --- !u!114 &114725520652249132
 MonoBehaviour:
   m_ObjectHideFlags: 1

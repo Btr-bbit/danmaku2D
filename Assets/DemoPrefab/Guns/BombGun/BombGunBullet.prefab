@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114274434832380238}
   - component: {fileID: 114189145022714412}
   - component: {fileID: 114933179165240522}
+  - component: {fileID: 114177672093937788}
   m_Layer: 8
   m_Name: BombGunBullet
   m_TagString: Bullet
@@ -109,6 +110,18 @@ BoxCollider2D:
   m_Offset: {x: -0.013168335, y: -0.020258904}
   serializedVersion: 2
   m_Size: {x: 0.16735816, y: 0.17748737}
+--- !u!114 &114177672093937788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1193489010780808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3ce6a2bd1151145b8721b4317eb28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawDamage: 10
 --- !u!114 &114189145022714412
 MonoBehaviour:
   m_ObjectHideFlags: 1

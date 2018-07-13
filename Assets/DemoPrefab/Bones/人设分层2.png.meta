@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 3bd872761acde3447b5e7b058ea33de3
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Head_0
+    21300002: LeftHand_1
+    21300004: Body_2
+    21300006: RightHand_3
+    21300008: LeftFoot_4
+    21300010: RightFoot_5
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Head_0
+      rect:
+        serializedVersion: 2
+        x: 2070.916
+        y: 2711.9602
+        width: 3281.003
+        height: 2236.968
+      alignment: 9
+      pivot: {x: 0.49758682, y: 0.500025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42eb54f78c7179d448ef83705102661f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftHand_1
+      rect:
+        serializedVersion: 2
+        x: 1687.5258
+        y: 1381.5757
+        width: 842.30725
+        height: 1260.5281
+      alignment: 9
+      pivot: {x: 0.50216144, y: 0.5009203}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d01096426049ee48a18271051ff0a85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body_2
+      rect:
+        serializedVersion: 2
+        x: 2872.036
+        y: 1151.4949
+        width: 1380.0535
+        height: 1476.3728
+      alignment: 9
+      pivot: {x: 0.5006794, y: 0.49615195}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e576c9f1155c2ca4191db9719ceb6ec4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightHand_3
+      rect:
+        serializedVersion: 2
+        x: 4563.9546
+        y: 1150.8291
+        width: 773.8047
+        height: 1260.5281
+      alignment: 9
+      pivot: {x: 0.51827794, y: 0.49675286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ee85a693de62642be34470d53ecb55
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFoot_4
+      rect:
+        serializedVersion: 2
+        x: 2674.9143
+        y: 155.54704
+        width: 677.9009
+        height: 801.4302
+      alignment: 9
+      pivot: {x: 0.5009382, y: 0.50092065}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4caaae24f236941a8b3ddba7d48c79
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightFoot_5
+      rect:
+        serializedVersion: 2
+        x: 3627.1558
+        y: 186.99908
+        width: 650.5
+        height: 798.0039
+      alignment: 9
+      pivot: {x: 0.5224354, y: 0.50501114}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25d19697ccb44940a69b50cd9465281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5c3d4b28e430f67448b1453118d00542
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 636669267422774900
+  assetBundleName: 
+  assetBundleVariant: 

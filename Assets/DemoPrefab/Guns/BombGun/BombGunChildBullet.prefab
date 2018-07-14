@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 50538329810737616}
   - component: {fileID: 114403302074324996}
   - component: {fileID: 114275692097036252}
+  - component: {fileID: 114589842290941552}
   m_Layer: 8
   m_Name: BombGunChildBullet
   m_TagString: Bullet
@@ -170,6 +171,18 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   time: 0
+--- !u!114 &114589842290941552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976927207750590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3ce6a2bd1151145b8721b4317eb28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawDamage: 0.5
 --- !u!212 &212774719774086736
 SpriteRenderer:
   m_ObjectHideFlags: 1

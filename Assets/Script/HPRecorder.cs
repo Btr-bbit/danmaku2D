@@ -7,10 +7,11 @@ public class HPRecorder : MonoBehaviour {
     public UnityEvent onHPZero = new UnityEvent();
     public float hp;
     public float modifier = 1.0f;
+    private GameObject deathAnimation;
 
     // Use this for initialization
     void Start () {
-		
+		deathAnimation = GameObject.Find("effects manager").GetComponent<EffectManager>().deathEffect;
 	}
 	
 	// Update is called once per frame
@@ -34,7 +35,8 @@ public class HPRecorder : MonoBehaviour {
         hp -= realDamage;
         if (hp <= 0)
         {
-            //onHPZero.Invoke();
+            onHPZero.Invoke();
+            Instantiate(deathAnimation,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
         return realDamage;

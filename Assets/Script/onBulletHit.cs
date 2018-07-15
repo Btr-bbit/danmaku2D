@@ -20,7 +20,7 @@ public class onBulletHit : MonoBehaviour {
             Destroy(gameObject);
 			break;
 		case "Player":
-			Player p = collider.GetComponent<Player>();
+			Player p = collider.gameObject.GetComponent<Player>();
 			p.GetHit(gameObject);
             Destroy(gameObject);
 			break;

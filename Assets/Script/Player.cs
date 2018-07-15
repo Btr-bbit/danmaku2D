@@ -25,16 +25,16 @@ public class Player : MonoBehaviour {
     //玩家射击
 
     //上下左右移动对应按键
-    private KeyCode moveLeftKey, moveRightKey, moveForwardKey, moveBackKey;
+    protected KeyCode moveLeftKey, moveRightKey, moveForwardKey, moveBackKey;
     //闪避对应按键
-    private KeyCode dodgeKey;
+    protected KeyCode dodgeKey;
 
     public UnityEvent onPlayerDodge;
     public UnityEvent onPlayerContinuouslyMove;
-    private SpriteRenderer dodgeIndicator;
+    protected SpriteRenderer dodgeIndicator;
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
         if (onPlayerDodge == null)
             onPlayerDodge = new UnityEvent();
         if (onPlayerContinuouslyMove == null)

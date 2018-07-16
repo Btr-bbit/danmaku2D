@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 50538329810737616}
   - component: {fileID: 114403302074324996}
   - component: {fileID: 114275692097036252}
-  - component: {fileID: 114985010552776312}
+  - component: {fileID: 114589842290941552}
   m_Layer: 8
   m_Name: BombGunChildBullet
   m_TagString: Bullet
@@ -171,7 +171,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   time: 0
---- !u!114 &114985010552776312
+--- !u!114 &114589842290941552
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

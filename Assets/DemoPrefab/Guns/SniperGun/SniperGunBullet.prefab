@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61911135032916304}
   - component: {fileID: 50634716616933070}
   - component: {fileID: 114194808630098678}
-  - component: {fileID: 114756310916757798}
+  - component: {fileID: 114001523150234642}
   m_Layer: 8
   m_Name: SniperGunBullet
   m_TagString: Bullet
@@ -108,6 +108,18 @@ BoxCollider2D:
   m_Offset: {x: -0.013168335, y: -0.020258904}
   serializedVersion: 2
   m_Size: {x: 0.16735816, y: 0.17748737}
+--- !u!114 &114001523150234642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477751460304568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3ce6a2bd1151145b8721b4317eb28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawDamage: 5
 --- !u!114 &114074433387156222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,18 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f25ead07695064c876fa198dd98ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114756310916757798
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477751460304568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea3ce6a2bd1151145b8721b4317eb28b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rawDamage: 5
 --- !u!212 &212875554871554618
 SpriteRenderer:
   m_ObjectHideFlags: 1

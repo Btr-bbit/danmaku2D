@@ -7,11 +7,12 @@ public class CameraController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        transform.position.Set(player.transform.position.x, transform.position.y, player.transform.position.z);
+        
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        transform.position.Set(player.transform.position.x, transform.position.y, player.transform.position.z);
+	// Update按场景中顺序执行，使用LateUpdate强制相机跟随最后执行
+	void LateUpdate () {
+        if (player != null)
+			transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
     }
 }

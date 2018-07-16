@@ -438,25 +438,8 @@ public class PolyNavAgent : MonoBehaviour{
 				Gizmos.DrawLine(activePath[i], activePath[(i == activePath.Count - 1)? i : i + 1]);
 		}	
     }
-
-	void Start(){
-		OnDestinationReached = setNewDestination;
-		Transform p = GameObject.Find("小KUN").GetComponent<Player>().transform;
-		SetDestination(new Vector2(p.position.x, p.position.y));
-		//SetDestination(new Vector2(-3.5f,3f));
-	}
-
-	void setNewDestination(){
-		// Stop();
-		// Transform p = GameObject.Find("小KUN").GetComponent<Player>().transform;
-		// SetDestination(new Vector2(p.position.x, p.position.y));
-	}
-
-	void Update(){
-		Transform p = GameObject.Find("小KUN").GetComponent<Player>().transform;
-		SetDestination(new Vector2(p.position.x, p.position.y));
-	}
-
 }
+
+
 
 

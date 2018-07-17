@@ -25,7 +25,8 @@ public class GunManager : MonoBehaviour {
     public List<int> ownedGuns;//玩家当前拥有的枪支ID
     private Gun nowGun = null;//当前持握的枪支
 
-    public GameObject currentGun;
+    private GameObject currentGun;//当前人身上的枪支模型物体
+    private float cantShotTime = 0f;//距离下次可以开枪的时间(硬直/眩晕)
 
     // Use this for initialization
     void Start()
@@ -48,6 +49,7 @@ public class GunManager : MonoBehaviour {
 
     private void processShoot()
     {
+        cantShotTime -= Time.deltaTime;
         if (Input.GetMouseButtonDown(0)) 
         {
             if (currentGun != null)
@@ -55,7 +57,13 @@ public class GunManager : MonoBehaviour {
                 Destroy(currentGun);
             }
             if (nowGun != null)
-                currentGun = Instantiate(nowGun.emitter);
+            {
+                if (cantShotTime <= 0f)
+                {
+                    currentGun = Instantiate(nowGun.emitter);
+                    cantShotTime = nowGun.clickInterval;
+                }
+            }
             else
                 Debug.Log("You are not equipped with a gun!");
             //currentGun.GetComponent<Emitter>().canFire = true;
@@ -65,8 +73,13 @@ public class GunManager : MonoBehaviour {
             Destroy(currentGun);
             currentGun = null;
         }
-        if (Input.GetMouseButton(0)) 
+        if (Input.GetMouseButton(0))
         {
+            if (nowGun != null && cantShotTime <= 0f && currentGun == null)
+            {
+                currentGun = Instantiate(nowGun.emitter);
+                cantShotTime = nowGun.clickInterval;
+            }
             if (currentGun != null)
             {
                 currentGun.transform.position = gameObject.transform.position;
@@ -88,5 +101,4 @@ public class GunManager : MonoBehaviour {
                     nowGun = guns[ownedGuns[i]];
         }
     }
-
 }

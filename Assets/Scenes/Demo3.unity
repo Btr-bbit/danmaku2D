@@ -1454,8 +1454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2abacb0a5e254722992299c842da955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGun: {fileID: 0}
-  basicGun: {fileID: 1535151748130256, guid: 94de094801ab2e34b87df843e3956830, type: 2}
+  guns: []
+  ownedGuns: 
 --- !u!4 &1031694981
 Transform:
   m_ObjectHideFlags: 0

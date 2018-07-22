@@ -2,14 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IRandomFunc
+[System.Serializable]
+public class RandomFunction //用于单个子弹初始化时的随机化，作为Emitter的参数表
 {
-    float Rand();
-}
-
-public class RandomSphere : IRandomFunc
-{
-    public float Rand() { return 1; }
+    /*
+     * 随机函数方法：随机产生0-1中的若干实数，选择对应曲线中对应位置的值作为变换参数
+     * 采用Union设计方法，单参数变化仅曲线1有效，双参数为曲线1/2有效，其他曲线为No-Effect
+     * 0：Rotate 将物体随机旋转角度(参数1:角度)
+     * 1：Position 随机移动物体XY坐标(参数1:X 参数2:Y)
+     */
+    public enum Type { Rotate, Position };
+    public Type type;
+    public AnimationCurve ac1,ac2;
+    //将改随机化效果作用于物体
+    public void Acting(GameObject obj)
+    {
+        float r1 = Random.Range(0.0f, 1.0f);
+        float r2 = Random.Range(0.0f, 1.0f);
+        switch (type)
+        {
+            case Type.Rotate:
+                obj.transform.Rotate(0, 0, ac1.Evaluate(r1));
+                break;
+            case Type.Position:
+                obj.transform.position += new Vector3(ac1.Evaluate(r1), ac2.Evaluate(r2), 0);
+                break;
+            default:
+                Debug.LogWarning("Unknown RandomFunction Type!");
+                break;
+        }
+    }
 }
 
 //子弹发射器
@@ -23,8 +45,8 @@ public class Emitter : MonoBehaviour {
     public int EmitRound = -1; //-1表示无限发射，否则发射Round轮
     public float EmitAngle = 0; //发射的扇形角度(默认以up方向为中轴均分)
     public int EmitNumber = 1; //每轮发射的子弹个数(配合Angle参数发射扇形子弹)
-    public enum RandomFunction { a,b};
-    public RandomFunction F;
+    public bool randomSelectBullet = false; //若为True则每轮随机从列表中选择一种弹幕
+    public RandomFunction[] randomFunction = null; //发射子弹时将会对每个子弹依次作用该表中的随机变化函数
 
     private int nextBulletID = 0;
     private int bulletNumber;
@@ -53,6 +75,9 @@ public class Emitter : MonoBehaviour {
             obj = Instantiate(bullet[nextBulletID],transform.position,transform.rotation);
             obj.transform.Rotate(0,0,i * EmitAngle / EmitNumber - (EmitNumber - 1) * EmitAngle / (EmitNumber * 2));
             if(!worldSpace)obj.transform.parent = gameObject.transform;
+            if (randomFunction != null)
+                foreach (RandomFunction func in randomFunction)
+                    func.Acting(obj);
         }
 
     }
@@ -70,7 +95,10 @@ public class Emitter : MonoBehaviour {
             startTime = roundTime;
             EmitRound--;
             Emit();
-            nextBulletID = (nextBulletID + 1) % bulletNumber;
+            if (randomSelectBullet)
+                nextBulletID = Random.Range(0,bulletNumber);
+            else
+                nextBulletID = (nextBulletID + 1) % bulletNumber;
         }
     }
 

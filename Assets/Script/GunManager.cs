@@ -10,7 +10,8 @@ public class Gun
         BombGun,
         FlameThrower,
         ShotGun,
-        SniperGun
+        SniperGun,
+        RandomGun
     };
     public Type type;//枪支名称(作为索引)
     public GameObject emitter;//产生子弹的Emitter，需要在开枪时生成，停止开枪时销毁
@@ -39,6 +40,8 @@ public class GunManager : MonoBehaviour {
             Debug.LogWarning("Find more than one GunManager in scene!");
             Destroy(this);
         }
+        if (nowGun == null && ownedGuns.Count>0)
+            nowGun = guns[ownedGuns[0]];
     }
 	
 	// Update is called once per frame

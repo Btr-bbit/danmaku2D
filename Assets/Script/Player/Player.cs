@@ -33,6 +33,9 @@ public class Player : MonoBehaviour {
     public UnityEvent onPlayerContinuouslyMove;
     protected SpriteRenderer dodgeIndicator;
 
+    //刚体组件索引
+    private Rigidbody2D rigitBody2D;
+
     // Use this for initialization
     public void Start () {
         if (onPlayerDodge == null)
@@ -50,6 +53,8 @@ public class Player : MonoBehaviour {
         moveRightKey = KeyCode.D;
         moveForwardKey = KeyCode.W;
         moveBackKey = KeyCode.S;
+
+        rigitBody2D = gameObject.GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
@@ -93,7 +98,7 @@ public class Player : MonoBehaviour {
             moveDirection += Vector3.down;
         }
 
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        tryMove();
     }
 
     private void processDodge()
@@ -128,7 +133,7 @@ public class Player : MonoBehaviour {
             yield return new WaitForEndOfFrame();
             passedTime += Time.deltaTime;
             moveSpeed = dodgeSpeed.Evaluate(passedTime);
-            transform.position += moveDirection * moveSpeed * Time.deltaTime;
+            tryMove();
             if ((!flag) && (passedTime > invincibleDodgeTime))
             {
                 invincibleLayer -= 1;
@@ -164,9 +169,10 @@ public class Player : MonoBehaviour {
         }
     }
 
-	private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject reward = collision.gameObject;
+        //reward
+        GameObject reward = collider.gameObject;
         if (reward.tag == "Supply")
         {
             Destroy(reward);
@@ -175,5 +181,26 @@ public class Player : MonoBehaviour {
         {
 
         }
-	}
+        //move
+        switch (collider.tag)
+        {
+            case "Wall":
+                Debug.Log("Move Wall.");
+                break;
+        }
+        // if (collider.tag == "Wall" || collider.tag == "Player")
+        //     Destroy(gameObject);
+    }
+
+    private void tryMove()
+    {
+        Vector3 p = (transform.position + moveDirection * moveSpeed * Time.deltaTime);
+        rigitBody2D.MovePosition(new Vector2(p.x,p.y));
+        //transform.position = p;
+    }
+    private void tryMoveFalse()
+    {
+        gameObject.GetComponent<Rigidbody2D>().AddForce(moveDirection * moveSpeed);
+        //transform.position -= moveDirection * moveSpeed * Time.deltaTime;
+    }
 }

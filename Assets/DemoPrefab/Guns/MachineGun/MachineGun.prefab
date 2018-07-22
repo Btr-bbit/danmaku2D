@@ -9,43 +9,43 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1441625084985830}
+  m_RootGameObject: {fileID: 1861387843002136}
   m_IsPrefabAsset: 1
---- !u!1 &1441625084985830
+--- !u!1 &1861387843002136
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4541870055822050}
-  - component: {fileID: 114907971201512922}
+  - component: {fileID: 4400916413028272}
+  - component: {fileID: 114163369264405650}
   m_Layer: 0
-  m_Name: BombGunChildEmitter
+  m_Name: MachineGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4541870055822050
+--- !u!4 &4400916413028272
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1441625084985830}
+  m_GameObject: {fileID: 1861387843002136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.4200173, y: -0.7287911, z: -0.024822777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114907971201512922
+--- !u!114 &114163369264405650
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1441625084985830}
+  m_GameObject: {fileID: 1861387843002136}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1367756af21e0f4299eb187402bab20, type: 3}
@@ -54,10 +54,10 @@ MonoBehaviour:
   tracking: 0
   worldSpace: 1
   bullet:
-  - {fileID: 1976927207750590, guid: a8eac36915f1b8c4d9eccbc0b64efaa4, type: 2}
-  roundTime: 0
+  - {fileID: 1441978286517330, guid: c3bbca5a19c914166a3797dc6ca2579b, type: 2}
+  roundTime: 0.1
   startTime: 0
-  EmitRound: 1
-  EmitAngle: 360
-  EmitNumber: 30
+  EmitRound: -1
+  EmitAngle: 0
+  EmitNumber: 1
   F: 0

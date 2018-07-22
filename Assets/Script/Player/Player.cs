@@ -103,6 +103,11 @@ public class Player : MonoBehaviour {
             return;
         }
 
+        if (moveDirection == Vector3.zero)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(1))
         {
             isDodging = true;

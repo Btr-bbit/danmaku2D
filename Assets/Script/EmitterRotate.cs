@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //旋转公式：角度
-public class Rotate : MonoBehaviour {
+public class EmitterRotate : MonoBehaviour {
 
     public float speed = 30f;
 	// Use this for initialization

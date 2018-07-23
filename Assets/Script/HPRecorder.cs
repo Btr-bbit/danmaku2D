@@ -8,6 +8,8 @@ public class HPRecorder : MonoBehaviour {
     public float hp;
     public float modifier = 1.0f;
     private GameObject deathAnimation;
+    public delegate void OnHit(float NowHP, float Damage);
+    public OnHit onHit;
 
     // Use this for initialization
     void Start () {
@@ -39,6 +41,7 @@ public class HPRecorder : MonoBehaviour {
             //Instantiate(deathAnimation,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
+        if(onHit!=null)onHit(hp, realDamage);
         return realDamage;
     }
 }

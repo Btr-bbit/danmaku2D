@@ -11,7 +11,7 @@ static class PlayerState
     static public float yellowEnergy, blueEnergy;//当前主角的能量
     static public void StartGame()
     {
-        HP = MaxHP = 6;
+        HP = MaxHP = 7;
         maxYellowEnergy = 100.0f;
         maxBlueEnergy = 100.0f;
         yellowEnergy = 100.0f;
@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
         moveBackKey = KeyCode.S;
 
         rigitBody2D = gameObject.GetComponent<Rigidbody2D>();
+        gameObject.GetComponent<HPRecorder>().onHit = new HPRecorder.OnHit(OnHit);
     }
 
     // Update is called once per frame
@@ -236,5 +237,10 @@ public class Player : MonoBehaviour
         Vector3 p = (transform.position + moveDirection * moveSpeed * Time.deltaTime);
         rigitBody2D.MovePosition(new Vector2(p.x, p.y));
         //transform.position = p;
+    }
+
+    //收到攻击时触发
+    void OnHit(float NowHP, float Damage) {
+        PlayerState.HP = (int)NowHP;
     }
 }

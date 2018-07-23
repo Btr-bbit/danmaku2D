@@ -80,7 +80,7 @@ public class Emitter : MonoBehaviour {
                 foreach (RandomFunction func in randomFunction)
                     func.Acting(obj);
         }
-        onShot();
+        if(onShot!=null)onShot();
     }
 
     private void FixedUpdate()

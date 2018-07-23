@@ -40,7 +40,7 @@ public class RoomManager : MonoBehaviour {
         }
         if (maxWave > 0)
         {
-            enemyWaves[wave].SetActive(true);
+            StartCoroutine(nextWave());
         }        
     }
 

@@ -20,10 +20,12 @@ public class ModeSelect : MonoBehaviour {
         if (gameObject.name == "SinglePlayer")
         {
             GameMode.playingMode = GameMode.PlayingMode.singlePlayer;
+            SceneController.instance.switch2Game();
         }
         else if (gameObject.name == "MultiPlayer")
         {
             GameMode.playingMode = GameMode.PlayingMode.multiPlayer;
+            SceneController.instance.switch2Game();
         }
         else if (gameObject.name == "Exit")
         {

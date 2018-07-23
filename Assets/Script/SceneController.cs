@@ -6,12 +6,16 @@ using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
-
-    public delegate void CallWhenSwitchToType();
-
-    CallWhenSwitchToType Switch2PlayingHandle, Switch2MenuHandle;
     public static SceneController instance = null;
-    int currScene = -1;
+    enum CurrentScene
+    {
+        init,
+        Title,
+        pick,
+        loading,
+        game
+    };
+    CurrentScene currentScene = CurrentScene.init;
 
     // Use this for initialization
     void Start()
@@ -25,47 +29,58 @@ public class SceneController : MonoBehaviour
             Destroy(this);
             return;
         }
-        switch2menu();
+        switch2Title();
     }
 
-    public void switch2playing()
+    public void switch2Game()
     {
-        Debug.Log("switch2playing");
-        StartCoroutine("playing");
+        Debug.Log("switch2Game");
+        StartCoroutine("Game");
 
     }
 
-    public void switch2menu()
+    public void switch2Title()
     {
-        Debug.Log("switch2mainmenu");
-        StartCoroutine("menu");
+        Debug.Log("switch2Title");
+        StartCoroutine("Title");
     }
 
-    IEnumerator playing()
+    private void UnloadCurrentScene() 
     {
-        if (currScene == 1)
+        switch (currentScene)
         {
-            SceneManager.UnloadSceneAsync("menu");
+            case CurrentScene.loading:
+                break;
+            case CurrentScene.pick:
+                break;
+            case CurrentScene.Title:
+                SceneManager.UnloadSceneAsync("Title");
+                break;
+            case CurrentScene.game:
+                break;
+            default:
+                break;
         }
-        currScene = 0; //scene: playing
-        SceneManager.LoadSceneAsync("playing", LoadSceneMode.Additive);
-        while (SceneManager.GetSceneByName("playing").IsValid() == false || SceneManager.GetSceneByName("playing").isLoaded == false)
+    }
+
+    IEnumerator Game()
+    {
+        UnloadCurrentScene();
+        currentScene = CurrentScene.game;
+        SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
+        while (SceneManager.GetSceneByName("Game").IsValid() == false || SceneManager.GetSceneByName("Game").isLoaded == false)
         {
             yield return null;
         }
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("playing"));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Game"));
     }
 
-    IEnumerator menu()
+    IEnumerator Title()
     {
-        if (currScene == 0)
-        {
-            SceneManager.UnloadSceneAsync("playing");
-        }
-        currScene = 1;//scene: menu
-        SceneManager.LoadSceneAsync("menu", LoadSceneMode.Additive);
-
-        yield return new WaitUntil(() => (SceneManager.GetSceneByName("menu").isLoaded));
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("menu"));
+        UnloadCurrentScene();
+        currentScene = CurrentScene.Title;
+        SceneManager.LoadSceneAsync("Title", LoadSceneMode.Additive);
+        yield return new WaitUntil(() => (SceneManager.GetSceneByName("Title").isLoaded));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Title"));
     }
 }

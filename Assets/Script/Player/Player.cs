@@ -3,7 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Player : MonoBehaviour {
+static class PlayerState
+{
+    //玩家射击
+    static public float maxYellowEnergy, maxBlueEnergy;//能量上限
+    static public float yellowEnergy, blueEnergy;//当前主角的能量
+    static void startGame()
+    {
+        maxYellowEnergy = 100.0f;
+        maxBlueEnergy = 100.0f;
+        yellowEnergy = 100.0f;
+        blueEnergy = 100.0f;
+    }
+};
+
+public class Player : MonoBehaviour
+{
     //身上无敌效果层数（大于1时具有无敌）
     public int invincibleLayer = 0;
     //是否正处于躲避状态（躲避时无法控制方向，躲避且无敌时不会碰撞子弹）
@@ -22,7 +37,6 @@ public class Player : MonoBehaviour {
     public Vector3 moveDirection = Vector3.zero;
     //角色持续跑动时触发动画效果间隔
     public float animDelay;
-    //玩家射击
 
     //上下左右移动对应按键
     protected KeyCode moveLeftKey, moveRightKey, moveForwardKey, moveBackKey;
@@ -37,7 +51,8 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rigitBody2D;
 
     // Use this for initialization
-    public void Start () {
+    public void Start()
+    {
         if (onPlayerDodge == null)
             onPlayerDodge = new UnityEvent();
         if (onPlayerContinuouslyMove == null)
@@ -56,9 +71,10 @@ public class Player : MonoBehaviour {
 
         rigitBody2D = gameObject.GetComponent<Rigidbody2D>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         //transform.LookAt(Input.mousePosition);
         processMovement();
         processDodge();
@@ -66,7 +82,7 @@ public class Player : MonoBehaviour {
         {
             invincibleLayer = 0;
         }
-	}
+    }
 
     public bool isInvincible()
     {
@@ -125,7 +141,7 @@ public class Player : MonoBehaviour {
     {
         onPlayerDodge.Invoke();
         float passedTime = 0;
-        moveSpeed = dodgeSpeed.Evaluate(passedTime)*moveBaseSpeed;
+        moveSpeed = dodgeSpeed.Evaluate(passedTime) * moveBaseSpeed;
         invincibleLayer += 1;
         bool flag = false;
         while (passedTime < totalDodgeTime)
@@ -156,8 +172,9 @@ public class Player : MonoBehaviour {
             yield return new WaitForSeconds(animDelay);
         }
     }
-    
-    public void GetHit(GameObject hazard){
+
+    public void GetHit(GameObject hazard)
+    {
         if (isInvincible())
         {
             return;
@@ -173,11 +190,30 @@ public class Player : MonoBehaviour {
     {
         //reward
         GameObject reward = collider.gameObject;
+        switch (reward.tag)
+        {
+            case "Supply":
+                Destroy(reward);
+                break;
+            case "YellowEnergy":
+                PlayerState.yellowEnergy += 1;
+                Destroy(reward);
+                break;
+            case "BlueEnergy":
+                PlayerState.blueEnergy += 1;
+                Destroy(reward);
+                break;
+
+        }
         if (reward.tag == "Supply")
         {
             Destroy(reward);
         }
         else if (reward.tag == "Treasure")
+        {
+
+        }
+        else if (reward.tag == "YellowEnergy")
         {
 
         }
@@ -195,14 +231,14 @@ public class Player : MonoBehaviour {
     private void tryMove()
     {
         Vector3 p = (transform.position + moveDirection * moveSpeed * Time.deltaTime);
-        rigitBody2D.MovePosition(new Vector2(p.x,p.y));
+        rigitBody2D.MovePosition(new Vector2(p.x, p.y));
         //transform.position = p;
     }
-    
+
     private void tryMoveFalse()
     {
         gameObject.GetComponent<Rigidbody2D>().AddForce(moveDirection * moveSpeed);
         //transform.position -= moveDirection * moveSpeed * Time.deltaTime;
     }
-    
+
 }

@@ -10,11 +10,13 @@ public class Gun
         BombGun,
         FlameThrower,
         ShotGun,
-        SniperGun
+        SniperGun,
+        RandomGun
     };
     public Type type;//枪支名称(作为索引)
     public GameObject emitter;//产生子弹的Emitter，需要在开枪时生成，停止开枪时销毁
     public float clickInterval;//两次发射之间的最小时间间隔(鼠标两次点击间)
+    public float yellowEnergy=0, blueEnergy=0;//黄色与蓝色能量消耗
     //以及一些控制枪支动画/模型的成员
 }
 
@@ -39,6 +41,8 @@ public class GunManager : MonoBehaviour {
             Debug.LogWarning("Find more than one GunManager in scene!");
             Destroy(this);
         }
+        if (nowGun == null && ownedGuns.Count>0)
+            nowGun = guns[ownedGuns[0]];
     }
 	
 	// Update is called once per frame
@@ -46,6 +50,18 @@ public class GunManager : MonoBehaviour {
         changeGun();
         processShoot();
 	}
+
+    private void Shot()
+    {
+        if (PlayerState.blueEnergy >= nowGun.blueEnergy &&
+            PlayerState.yellowEnergy >= nowGun.yellowEnergy)
+        {
+            PlayerState.blueEnergy -= nowGun.blueEnergy;
+            PlayerState.yellowEnergy -= nowGun.yellowEnergy;
+            currentGun = Instantiate(nowGun.emitter);
+            cantShotTime = nowGun.clickInterval;
+        }
+    }
 
     private void processShoot()
     {
@@ -60,8 +76,7 @@ public class GunManager : MonoBehaviour {
             {
                 if (cantShotTime <= 0f)
                 {
-                    currentGun = Instantiate(nowGun.emitter);
-                    cantShotTime = nowGun.clickInterval;
+                    Shot();
                 }
             }
             else
@@ -76,10 +91,7 @@ public class GunManager : MonoBehaviour {
         if (Input.GetMouseButton(0))
         {
             if (nowGun != null && cantShotTime <= 0f && currentGun == null)
-            {
-                currentGun = Instantiate(nowGun.emitter);
-                cantShotTime = nowGun.clickInterval;
-            }
+                Shot();
             if (currentGun != null)
             {
                 currentGun.transform.position = gameObject.transform.position;
@@ -98,7 +110,7 @@ public class GunManager : MonoBehaviour {
         {
                 //列表里有此枪
                 if (ownedGuns.Count >= i)
-                    nowGun = guns[ownedGuns[i]];
+                    nowGun = guns[ownedGuns[i-1]];
         }
     }
 }

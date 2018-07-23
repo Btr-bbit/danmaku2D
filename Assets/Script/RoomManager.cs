@@ -8,7 +8,9 @@ public class RoomManager : MonoBehaviour {
     public bool started = false;
     public bool ended = false;
     public int wave = 0;
+    public float spawnWait = 1;
     private int maxWave;
+    private bool readyForNext = true;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +24,7 @@ public class RoomManager : MonoBehaviour {
             return;
         }
 
-        if (enemyWaves[wave].transform.childCount == 0)
+        if ((enemyWaves[wave].transform.childCount == 0) && (readyForNext))
         {
             Destroy(enemyWaves[wave]);
             WaveDestroyed();           
@@ -38,7 +40,7 @@ public class RoomManager : MonoBehaviour {
         }
         if (maxWave > 0)
         {
-            enemyWaves[wave].SetActive(true);
+            StartCoroutine(nextWave());
         }        
     }
 
@@ -58,8 +60,16 @@ public class RoomManager : MonoBehaviour {
         }
         else
         {
-            Debug.Log("next wave");
-            enemyWaves[wave].SetActive(true);
+            StartCoroutine(nextWave());
         }
+    }
+
+    private IEnumerator nextWave()
+    {
+        readyForNext = false;
+        yield return new WaitForSeconds(spawnWait);
+        Debug.Log("next wave");
+        enemyWaves[wave].SetActive(true);
+        readyForNext = true;
     }
 }

@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1032705239903900}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1032705239903900
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4861680441544784}
   - component: {fileID: 114737032013906910}
@@ -30,7 +30,7 @@ GameObject:
 --- !u!4 &4861680441544784
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032705239903900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -43,7 +43,7 @@ Transform:
 --- !u!114 &114737032013906910
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032705239903900}
   m_Enabled: 1
@@ -54,10 +54,11 @@ MonoBehaviour:
   tracking: 0
   worldSpace: 1
   bullet:
-  - {fileID: 1060191671180712, guid: ea9438dbf6f222841a0d2b85f953a598, type: 2}
-  roundTime: 0.2
+  - {fileID: 1441978286517330, guid: c3bbca5a19c914166a3797dc6ca2579b, type: 2}
+  roundTime: 0.5
   startTime: 0
   EmitRound: -1
   EmitAngle: 0
   EmitNumber: 1
-  F: 0
+  randomSelectBullet: 0
+  randomFunction: []

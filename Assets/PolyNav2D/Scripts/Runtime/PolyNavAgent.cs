@@ -60,8 +60,7 @@ public class PolyNavAgent : MonoBehaviour{
 	///The position of the agent
 	public Vector2 position{
 		get {return _transform.position;}
-		set {_transform.position = value;}
-	}
+		set {_transform.position = value;}}
 
 	///The current active path of the agent
 	public List<Vector2> activePath{

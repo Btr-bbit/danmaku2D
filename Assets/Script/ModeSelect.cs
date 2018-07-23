@@ -29,11 +29,5 @@ public class ModeSelect : MonoBehaviour {
         {
             Application.Quit();
         }
-	}
-
-	private void OnMouseOver()
-	{
-        
-	}
-	
+	}	
 }

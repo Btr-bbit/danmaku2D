@@ -8,15 +8,15 @@ public class ModeSelectAnim : MonoBehaviour {
     public float changeTime = 1.0f;
     bool mouseOn = false;
 
-    void changeColor(float speed)
+    void changeColor(GameObject @object,float speed)
     {
-        Color col = def.GetComponent<SpriteRenderer>().color;
+        Color col = @object.GetComponent<SpriteRenderer>().color;
         float alpha = col.a;
-        alpha -= Time.deltaTime / speed;
+        alpha -= Time.deltaTime * speed;
         if (alpha < 0.0f) alpha = 0.0f;
         if (alpha > 1.0f) alpha = 1.0f;
         col.a = alpha;
-        def.GetComponent<SpriteRenderer>().color = col;
+        @object.GetComponent<SpriteRenderer>().color = col;
     }
 
 	// Use this for initialization
@@ -30,11 +30,13 @@ public class ModeSelectAnim : MonoBehaviour {
 	void Update () {
         if (mouseOn)
         {
-            changeColor(changeTime);
+            changeColor(def, 1.0f / changeTime);
+            //changeColor(shine, -1.0f / changeTime);
         }
         else
         {
-            changeColor(-changeTime);
+            changeColor(def, -1.0f / changeTime);
+            //changeColor(shine, 1.0f / changeTime);
         }
 	}
 

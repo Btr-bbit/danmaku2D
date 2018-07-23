@@ -56,10 +56,7 @@ public class GunManager : MonoBehaviour {
         if (PlayerState.blueEnergy >= nowGun.blueEnergy &&
             PlayerState.yellowEnergy >= nowGun.yellowEnergy)
         {
-            PlayerState.blueEnergy -= nowGun.blueEnergy;
-            PlayerState.yellowEnergy -= nowGun.yellowEnergy;
             currentGun = Instantiate(nowGun.emitter);
-            cantShotTime = nowGun.clickInterval;
         }
     }
 
@@ -99,6 +96,13 @@ public class GunManager : MonoBehaviour {
             }
         }
         //currentGun.transform.LookAt(Vector3.forward + gameObject.transform.position, Input.mousePosition() - gameObject.transform.position);
+    }
+
+    public void OnShot()
+    {
+        PlayerState.blueEnergy -= nowGun.blueEnergy;
+        PlayerState.yellowEnergy -= nowGun.yellowEnergy;
+        cantShotTime = nowGun.clickInterval;
     }
 
     //数字键切枪

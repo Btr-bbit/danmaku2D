@@ -51,10 +51,15 @@ public class GunManager : MonoBehaviour {
         processShoot();
 	}
 
+    private bool HaveEnergyToShot()
+    {
+        return PlayerState.blueEnergy >= nowGun.blueEnergy &&
+            PlayerState.yellowEnergy >= nowGun.yellowEnergy;
+    }
+
     private void Shot()
     {
-        if (PlayerState.blueEnergy >= nowGun.blueEnergy &&
-            PlayerState.yellowEnergy >= nowGun.yellowEnergy)
+        if (HaveEnergyToShot())
         {
             currentGun = Instantiate(nowGun.emitter);
             currentGun.GetComponent<Emitter>().onShot = new Emitter.OnShot(OnShot);
@@ -104,6 +109,11 @@ public class GunManager : MonoBehaviour {
         PlayerState.blueEnergy -= nowGun.blueEnergy;
         PlayerState.yellowEnergy -= nowGun.yellowEnergy;
         cantShotTime = nowGun.clickInterval;
+        if (!HaveEnergyToShot())
+        {
+            Destroy(currentGun);
+            currentGun = null;
+        }
     }
 
     //数字键切枪

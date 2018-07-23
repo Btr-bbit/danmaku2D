@@ -198,9 +198,11 @@ public class Player : MonoBehaviour {
         rigitBody2D.MovePosition(new Vector2(p.x,p.y));
         //transform.position = p;
     }
+    
     private void tryMoveFalse()
     {
         gameObject.GetComponent<Rigidbody2D>().AddForce(moveDirection * moveSpeed);
         //transform.position -= moveDirection * moveSpeed * Time.deltaTime;
     }
+    
 }

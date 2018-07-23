@@ -24,6 +24,6 @@ public class EyeControll : MonoBehaviour {
         Vector3 targetPos = InitPosition + pos;
         targetPos.z = 0.0f;
         transform.position = targetPos;
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
 	}
 }

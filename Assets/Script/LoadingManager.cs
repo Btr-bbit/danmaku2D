@@ -22,8 +22,9 @@ public class LoadingManager : MonoBehaviour {
         loadingPercentage += loadingSpeed;
         percentageText.text = ((int)loadingPercentage).ToString() + "%";
         whale.transform.position = whaleInitPosition + (loadingPercentage - 50.0f) / 60.0f * whaleSpeed;
-        if (loadingSpeed >= 100.0f)
+        if (loadingPercentage >= 100.0f)
         {
+            SceneController.instance.UnloadScene(SceneController.CurrentScene.loading);
             //SceneController.instance.switch2Game();
         }
 	}

@@ -7,15 +7,15 @@ using UnityEngine.UI;
 public class SceneController : MonoBehaviour
 {
     public static SceneController instance = null;
-    enum CurrentScene
+    public enum CurrentScene
     {
         init,
-        Title,
+        title,
         pick,
         loading,
         game
     };
-    CurrentScene currentScene = CurrentScene.init;
+    public CurrentScene currentScene = CurrentScene.init;
 
     // Use this for initialization
     void Start()
@@ -32,11 +32,16 @@ public class SceneController : MonoBehaviour
         switch2Title();
     }
 
+    public void switch2Pick()
+    {
+        Debug.Log("switch2Pick");
+        StartCoroutine("Pick");
+    }
+
     public void switch2Game()
     {
         Debug.Log("switch2Game");
         StartCoroutine("Game");
-
     }
 
     public void switch2Title()
@@ -45,40 +50,72 @@ public class SceneController : MonoBehaviour
         StartCoroutine("Title");
     }
 
-    private void UnloadCurrentScene() 
+    public void UnloadScene(CurrentScene unloadScene) 
     {
-        switch (currentScene)
+        switch (unloadScene)
         {
             case CurrentScene.loading:
+                SceneManager.UnloadSceneAsync("Loading");
                 break;
             case CurrentScene.pick:
+                SceneManager.UnloadSceneAsync("Pick");
                 break;
-            case CurrentScene.Title:
+            case CurrentScene.title:
                 SceneManager.UnloadSceneAsync("Title");
                 break;
             case CurrentScene.game:
+                SceneManager.UnloadSceneAsync("Demo");
                 break;
             default:
                 break;
         }
     }
 
-    IEnumerator Game()
+    IEnumerator Pick()
     {
-        UnloadCurrentScene();
-        currentScene = CurrentScene.game;
-        SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
-        while (SceneManager.GetSceneByName("Game").IsValid() == false || SceneManager.GetSceneByName("Game").isLoaded == false)
+        currentScene = CurrentScene.pick;
+        SceneManager.LoadSceneAsync("Pick", LoadSceneMode.Additive);
+        while (SceneManager.GetSceneByName("Pick").IsValid() == false || SceneManager.GetSceneByName("Pick").isLoaded == false)
         {
             yield return null;
         }
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Game"));
+        UnloadScene(CurrentScene.title);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Pick"));
+    }
+
+    IEnumerator Game()
+    {
+        SceneManager.LoadSceneAsync("Demo", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
+        while (SceneManager.GetSceneByName("Loading").IsValid() == false || SceneManager.GetSceneByName("Loading").isLoaded == false)
+        {
+            yield return null;
+        }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Loading"));
+        UnloadScene(CurrentScene.pick);
+        while (SceneManager.GetSceneByName("Loading").IsValid() == true || SceneManager.GetSceneByName("Loading").isLoaded == true)
+        {
+            yield return null;
+        }
+        while (SceneManager.GetSceneByName("Demo").IsValid() == false || SceneManager.GetSceneByName("Demo").isLoaded == false)
+        {
+            yield return null;
+        }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Demo"));
+
+        /*currentScene = CurrentScene.game;
+        SceneManager.LoadSceneAsync("Demo", LoadSceneMode.Additive);
+        while (SceneManager.GetSceneByName("Demo").IsValid() == false || SceneManager.GetSceneByName("Demo").isLoaded == false)
+        {
+            yield return null;
+        }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Demo"));*/
     }
 
     IEnumerator Title()
     {
-        UnloadCurrentScene();
-        currentScene = CurrentScene.Title;
+        //UnloadScene();
+        currentScene = CurrentScene.title;
         SceneManager.LoadSceneAsync("Title", LoadSceneMode.Additive);
         yield return new WaitUntil(() => (SceneManager.GetSceneByName("Title").isLoaded));
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Title"));

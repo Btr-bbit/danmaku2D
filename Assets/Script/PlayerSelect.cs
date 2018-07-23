@@ -10,6 +10,7 @@ public class PlayerSelect : MonoBehaviour
     private GameObject pointer;
     public float changeTime = 1.0f;
     public Vector3 upPos = new Vector3(-0.18f, 1.8f, 0);
+    public bool switchedAway = false;
 
     // Use this for initialization
     void Start()
@@ -26,9 +27,10 @@ public class PlayerSelect : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D other)
 	{
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Return) && !switchedAway)
         {
-            Debug.Log("log");
+            SceneController.instance.switch2Game();
+            switchedAway = true;
         }
 	}
 

@@ -110,7 +110,7 @@ public class GunManager : MonoBehaviour {
         {
                 //列表里有此枪
                 if (ownedGuns.Count >= i)
-                    nowGun = guns[ownedGuns[i]];
+                    nowGun = guns[ownedGuns[i-1]];
         }
     }
 }

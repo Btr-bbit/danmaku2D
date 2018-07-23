@@ -285,48 +285,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 245015029}
   m_CullTransparentMesh: 0
---- !u!1001 &259181985
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4924461693894106, guid: f4ba3d57018a6c44f8b45f16f7cc0bc8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -3.2743738
-      objectReference: {fileID: 0}
-    - target: {fileID: 4924461693894106, guid: f4ba3d57018a6c44f8b45f16f7cc0bc8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.5661388
-      objectReference: {fileID: 0}
-    - target: {fileID: 4924461693894106, guid: f4ba3d57018a6c44f8b45f16f7cc0bc8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4924461693894106, guid: f4ba3d57018a6c44f8b45f16f7cc0bc8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4924461693894106, guid: f4ba3d57018a6c44f8b45f16f7cc0bc8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4924461693894106, guid: f4ba3d57018a6c44f8b45f16f7cc0bc8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4924461693894106, guid: f4ba3d57018a6c44f8b45f16f7cc0bc8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4924461693894106, guid: f4ba3d57018a6c44f8b45f16f7cc0bc8, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f4ba3d57018a6c44f8b45f16f7cc0bc8, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &781555382
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +434,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 967455407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.39, y: 1.03, z: 0}
+  m_LocalPosition: {x: 2.88, y: 5.4, z: 0}
   m_LocalScale: {x: 0.022748346, y: 0.020291967, z: 1}
   m_Children:
   - {fileID: 781555383}
@@ -576,7 +534,7 @@ MonoBehaviour:
   - type: 5
     emitter: {fileID: 1421974689802222, guid: d1a3ca0a86834c342a1414a679168333, type: 2}
     clickInterval: 0.1
-  ownedGuns: 050000000000000001000000020000000300000004000000
+  ownedGuns: 000000000500000001000000020000000300000004000000
 --- !u!61 &967455412
 BoxCollider2D:
   m_ObjectHideFlags: 0

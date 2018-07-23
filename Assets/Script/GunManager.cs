@@ -57,6 +57,7 @@ public class GunManager : MonoBehaviour {
             PlayerState.yellowEnergy >= nowGun.yellowEnergy)
         {
             currentGun = Instantiate(nowGun.emitter);
+            currentGun.GetComponent<Emitter>().onShot = new Emitter.OnShot(OnShot);
         }
     }
 

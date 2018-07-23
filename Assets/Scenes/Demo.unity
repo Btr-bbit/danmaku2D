@@ -3362,6 +3362,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114966424349282778, guid: 6e7c30402976a6544977aab7682c612a,
+        type: 2}
+      propertyPath: guns.Array.data[1].yellowEnergy
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114966424349282778, guid: 6e7c30402976a6544977aab7682c612a,
+        type: 2}
+      propertyPath: guns.Array.data[3].blueEnergy
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114966424349282778, guid: 6e7c30402976a6544977aab7682c612a,
+        type: 2}
+      propertyPath: guns.Array.data[2].yellowEnergy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114966424349282778, guid: 6e7c30402976a6544977aab7682c612a,
+        type: 2}
+      propertyPath: guns.Array.data[4].blueEnergy
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114966424349282778, guid: 6e7c30402976a6544977aab7682c612a,
+        type: 2}
+      propertyPath: guns.Array.data[5].blueEnergy
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 212083639795377998, guid: 6e7c30402976a6544977aab7682c612a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 6e7c30402976a6544977aab7682c612a, type: 2}

@@ -28,7 +28,7 @@ public class Monster : MonoBehaviour {
         {
             for (int j = 0; j < rewardNumber[i]; j ++)
             {
-                Instantiate(reward[i], transform.position + Random.insideUnitSphere, transform.rotation);
+                Instantiate(reward[i], transform.position + Random.insideUnitSphere*0.1f, transform.rotation);
             }
         }
     }

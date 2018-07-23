@@ -199,10 +199,4 @@ public class Player : MonoBehaviour {
         //transform.position = p;
     }
     
-    private void tryMoveFalse()
-    {
-        gameObject.GetComponent<Rigidbody2D>().AddForce(moveDirection * moveSpeed);
-        //transform.position -= moveDirection * moveSpeed * Time.deltaTime;
-    }
-    
 }

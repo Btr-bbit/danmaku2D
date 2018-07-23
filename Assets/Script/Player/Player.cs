@@ -6,10 +6,12 @@ using UnityEngine.Events;
 static class PlayerState
 {
     //玩家射击
+    static public int MaxHP,HP;//生命上限和当前生命
     static public float maxYellowEnergy, maxBlueEnergy;//能量上限
     static public float yellowEnergy, blueEnergy;//当前主角的能量
-    static void startGame()
+    static public void StartGame()
     {
+        HP = MaxHP = 6;
         maxYellowEnergy = 100.0f;
         maxBlueEnergy = 100.0f;
         yellowEnergy = 100.0f;
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     public void Start()
     {
+        PlayerState.StartGame();
         if (onPlayerDodge == null)
             onPlayerDodge = new UnityEvent();
         if (onPlayerContinuouslyMove == null)

@@ -47,7 +47,8 @@ public class Emitter : MonoBehaviour {
     public int EmitNumber = 1; //每轮发射的子弹个数(配合Angle参数发射扇形子弹)
     public bool randomSelectBullet = false; //若为True则每轮随机从列表中选择一种弹幕
     public RandomFunction[] randomFunction = null; //发射子弹时将会对每个子弹依次作用该表中的随机变化函数
-
+    public delegate void OnShot();
+    public OnShot onShot;
     private int nextBulletID = 0;
     private int bulletNumber;
 
@@ -79,7 +80,7 @@ public class Emitter : MonoBehaviour {
                 foreach (RandomFunction func in randomFunction)
                     func.Acting(obj);
         }
-
+        onShot();
     }
 
     private void FixedUpdate()

@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigitBody2D;
 
     public GameObject modelKun, modelPeng;
+    public GameObject targetKun, targetPeng;
 
     // Use this for initialization
     public void Start()
@@ -253,11 +254,14 @@ public class Player : MonoBehaviour
         if (GameMode.playerModel == GameMode.PlayerModel.kun) {
             //model = Instantiate(modelKun);
             model = Instantiate(modelKun, transform);
+            Instantiate(targetKun, GameObject.Find("InGameUI").transform);
             //model.transform.parent = transform;
         } else if (GameMode.playerModel == GameMode.PlayerModel.peng) {
             //model = Instantiate(modelPeng);
             model = Instantiate(modelPeng, transform);
+            Instantiate(targetPeng, GameObject.Find("InGameUI").transform);
             //model.transform.parent = transform;
         }
+        Cursor.visible = false;
     }
 }

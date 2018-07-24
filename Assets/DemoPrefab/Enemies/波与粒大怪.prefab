@@ -291,7 +291,8 @@ MonoBehaviour:
   EmitRound: -1
   EmitAngle: 0
   EmitNumber: 1
-  F: 0
+  randomSelectBullet: 0
+  randomFunction: []
 --- !u!114 &114211143770621684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,7 +313,8 @@ MonoBehaviour:
   EmitRound: -1
   EmitAngle: 0
   EmitNumber: 1
-  F: 0
+  randomSelectBullet: 0
+  randomFunction: []
 --- !u!114 &114303681297271842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -345,7 +347,8 @@ MonoBehaviour:
   EmitRound: -1
   EmitAngle: 0
   EmitNumber: 1
-  F: 0
+  randomSelectBullet: 0
+  randomFunction: []
 --- !u!114 &114464099754549432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,7 +369,8 @@ MonoBehaviour:
   EmitRound: -1
   EmitAngle: 0
   EmitNumber: 1
-  F: 0
+  randomSelectBullet: 0
+  randomFunction: []
 --- !u!114 &114534205540446792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,8 +395,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward:
-  - {fileID: 1709192362869296, guid: f1ad5b7fd2321425c967009771045710, type: 2}
-  rewardNumber: 05000000
+  - {fileID: 1348222111550278, guid: 2f61bf93142ae47298143a0323c3ebaf, type: 2}
+  - {fileID: 1025858698225594, guid: 90ec60660ce22404caaa45b5f00d9520, type: 2}
+  rewardNumber: 0500000005000000
 --- !u!114 &114721230870969302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -413,7 +418,8 @@ MonoBehaviour:
   EmitRound: -1
   EmitAngle: 0
   EmitNumber: 1
-  F: 0
+  randomSelectBullet: 0
+  randomFunction: []
 --- !u!114 &114842688964701688
 MonoBehaviour:
   m_ObjectHideFlags: 1

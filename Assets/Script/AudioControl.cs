@@ -41,11 +41,8 @@ public class AudioControl : MonoBehaviour {
     //全局音效,与AudioSubControl、StaticAudio共同使用
     public GameObject staticAudio;//静态音源预制体，仅含一个无多普勒的AudioSource
     public enum MusicType { none, heroBullet, enermyBullet, chooseHero, heroDie, heroDash, monsterDie, monsterShot, changeGun };
-    [HideInInspector]
     public int[] MusicNum;//允许音效同时播放的个数
-    [HideInInspector]
     public AudioClip[] ElementClips;//音效集合，在inspector中赋值
-    [HideInInspector]
     public bool[] ElementClipLock = new bool[System.Enum.GetNames(typeof(AudioControl.MusicType)).Length];//音效锁，一帧只能播放一个音效
 
     void Start()

@@ -10,6 +10,7 @@ public class Monster : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rewardCount = reward.Length;
+        gameObject.GetComponent<HPRecorder>().onHit = new HPRecorder.OnHit(OnHit);
 	}
 	
 	// Update is called once per frame
@@ -19,8 +20,15 @@ public class Monster : MonoBehaviour {
 
 	void OnDestroy()
 	{
-        dropReward();
 	}
+
+    void OnHit(float NowHP, float Damage)
+    {
+        if (NowHP <= 0)
+        {
+            dropReward();
+        }
+    }
 
     void dropReward()
     {

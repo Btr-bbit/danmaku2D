@@ -35,13 +35,13 @@ public class HPRecorder : MonoBehaviour {
     {
         float realDamage = damage * modifier;
         hp -= realDamage;
+        if (onHit != null) onHit(hp, realDamage);
         if (hp <= 0)
         {
             onHPZero.Invoke();
             //Instantiate(deathAnimation,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
-        if(onHit!=null)onHit(hp, realDamage);
         return realDamage;
     }
 }

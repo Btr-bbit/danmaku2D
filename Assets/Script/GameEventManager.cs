@@ -21,12 +21,12 @@ public class GameEventManager : MonoBehaviour
         //Win();
     }
 
-    void Win()
+    public void Win()
     {
         winPanel.SetActive(true);
     }
 
-    void Lose()
+    public void Lose()
     {
         losePanel.SetActive(true);
     }

@@ -246,6 +246,9 @@ public class Player : MonoBehaviour
     //收到攻击时触发
     void OnHit(float NowHP, float Damage) {
         PlayerState.HP = (int)NowHP;
+        if (NowHP <= 0) {
+            GameEventManager.instance.Lose();
+        }
     }
 
     void initModel()

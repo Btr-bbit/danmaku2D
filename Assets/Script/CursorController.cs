@@ -11,7 +11,7 @@ public class CursorController : MonoBehaviour {
 
 	// Update is called once per frame
     void FixedUpdate () {
-        Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         Vector3 vector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         vector.z = 0.0f;
         transform.position = vector;

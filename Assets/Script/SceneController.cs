@@ -50,41 +50,72 @@ public class SceneController : MonoBehaviour
         StartCoroutine("Title");
     }
 
-    public void UnloadScene(CurrentScene unloadScene) 
+    public void UnloadScene(CurrentScene unloadScene = CurrentScene.init) 
     {
         switch (unloadScene)
         {
             case CurrentScene.loading:
-                SceneManager.UnloadSceneAsync("Loading");
+                if (SceneManager.GetSceneByName("Loading").IsValid() || SceneManager.GetSceneByName("Loading").isLoaded)
+                {
+                    SceneManager.UnloadSceneAsync("Loading");
+                }
                 break;
             case CurrentScene.pick:
-                SceneManager.UnloadSceneAsync("Pick");
+                if (SceneManager.GetSceneByName("Pick").IsValid() || SceneManager.GetSceneByName("Pick").isLoaded)
+                {
+                    SceneManager.UnloadSceneAsync("Pick");
+                }
                 break;
             case CurrentScene.title:
-                SceneManager.UnloadSceneAsync("Title");
+                if (SceneManager.GetSceneByName("Title").IsValid() || SceneManager.GetSceneByName("Title").isLoaded)
+                {
+                    SceneManager.UnloadSceneAsync("Title");
+                }
                 break;
             case CurrentScene.game:
-                SceneManager.UnloadSceneAsync("Demo");
+                if (SceneManager.GetSceneByName("Demo").IsValid() || SceneManager.GetSceneByName("Demo").isLoaded)
+                {
+                    SceneManager.UnloadSceneAsync("Demo");
+                }
                 break;
             default:
+                if (SceneManager.GetSceneByName("Loading").IsValid() || SceneManager.GetSceneByName("Loading").isLoaded) {
+                    SceneManager.UnloadSceneAsync("Loading");
+                }
+                if (SceneManager.GetSceneByName("Demo").IsValid() || SceneManager.GetSceneByName("Demo").isLoaded)
+                {
+                    SceneManager.UnloadSceneAsync("Demo");
+                }
+                if (SceneManager.GetSceneByName("Pick").IsValid() || SceneManager.GetSceneByName("Pick").isLoaded)
+                {
+                    SceneManager.UnloadSceneAsync("Pick");
+                }
+                if (SceneManager.GetSceneByName("Title").IsValid() || SceneManager.GetSceneByName("Title").isLoaded)
+                {
+                    SceneManager.UnloadSceneAsync("Title");
+                }
+                /*SceneManager.UnloadSceneAsync("Pick");
+                SceneManager.UnloadSceneAsync("Title");
+                SceneManager.UnloadSceneAsync("Demo");*/
                 break;
         }
     }
 
     IEnumerator Pick()
     {
+        UnloadScene();
         currentScene = CurrentScene.pick;
         SceneManager.LoadSceneAsync("Pick", LoadSceneMode.Additive);
         while (SceneManager.GetSceneByName("Pick").IsValid() == false || SceneManager.GetSceneByName("Pick").isLoaded == false)
         {
             yield return null;
         }
-        UnloadScene(CurrentScene.title);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Pick"));
     }
 
     IEnumerator Game()
     {
+        UnloadScene();
         SceneManager.LoadSceneAsync("Demo", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
         while (SceneManager.GetSceneByName("Loading").IsValid() == false || SceneManager.GetSceneByName("Loading").isLoaded == false)
@@ -92,7 +123,6 @@ public class SceneController : MonoBehaviour
             yield return null;
         }
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Loading"));
-        UnloadScene(CurrentScene.pick);
         while (SceneManager.GetSceneByName("Loading").IsValid() == true || SceneManager.GetSceneByName("Loading").isLoaded == true)
         {
             yield return null;
@@ -114,7 +144,7 @@ public class SceneController : MonoBehaviour
 
     IEnumerator Title()
     {
-        //UnloadScene();
+        UnloadScene();
         currentScene = CurrentScene.title;
         SceneManager.LoadSceneAsync("Title", LoadSceneMode.Additive);
         yield return new WaitUntil(() => (SceneManager.GetSceneByName("Title").isLoaded));

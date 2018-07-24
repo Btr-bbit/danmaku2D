@@ -6026,25 +6026,17 @@ MonoBehaviour:
   generateOnUpdate: 1
   navObstacles:
   - {fileID: 123657780}
-  - {fileID: 283965979}
-  - {fileID: 139979}
-  - {fileID: 121158718}
-  - {fileID: 1645222709}
-  - {fileID: 1482152153}
-  - {fileID: 1564205306}
-  - {fileID: 1457878645}
-  - {fileID: 2073481028}
-  - {fileID: 1955929723}
-  - {fileID: 1578181440}
-  - {fileID: 1357344575}
-  - {fileID: 943620407}
   - {fileID: 2081511275}
   - {fileID: 1813587837}
-  - {fileID: 657220371}
-  - {fileID: 831849668}
-  - {fileID: 852440612}
+  - {fileID: 1645222709}
+  - {fileID: 1482152153}
+  - {fileID: 943620407}
   - {fileID: 721431763}
-  - {fileID: 696994472}
+  - {fileID: 1564205306}
+  - {fileID: 1457878645}
+  - {fileID: 831849668}
+  - {fileID: 139979}
+  - {fileID: 852440612}
   inflateRadius: 0.6
   regenerateFlag: 1
 --- !u!1 &965565784
@@ -6899,10 +6891,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generateOnUpdate: 1
   navObstacles:
-  - {fileID: 1564205306}
-  - {fileID: 1457878645}
-  - {fileID: 831849668}
-  - {fileID: 139979}
   - {fileID: 2073481028}
   - {fileID: 1955929723}
   - {fileID: 1578181440}
@@ -6911,6 +6899,10 @@ MonoBehaviour:
   - {fileID: 657220371}
   - {fileID: 283965979}
   - {fileID: 121158718}
+  - {fileID: 1564205306}
+  - {fileID: 1457878645}
+  - {fileID: 831849668}
+  - {fileID: 139979}
   inflateRadius: 0.6
   regenerateFlag: 1
 --- !u!1001 &1152377645
@@ -13143,6 +13135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entrances:
   - {fileID: 781806539}
+  - {fileID: 1824097045}
   enemyWaves:
   - {fileID: 429778962}
   - {fileID: 1452110178}

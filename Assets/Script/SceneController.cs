@@ -132,7 +132,6 @@ public class SceneController : MonoBehaviour
             yield return null;
         }
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Demo"));
-
         /*currentScene = CurrentScene.game;
         SceneManager.LoadSceneAsync("Demo", LoadSceneMode.Additive);
         while (SceneManager.GetSceneByName("Demo").IsValid() == false || SceneManager.GetSceneByName("Demo").isLoaded == false)
@@ -150,4 +149,18 @@ public class SceneController : MonoBehaviour
         yield return new WaitUntil(() => (SceneManager.GetSceneByName("Title").isLoaded));
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Title"));
     }
+    /*void clean() {
+        GameObject go = GameObject.FindWithTag("YellowEnergy");
+        while (go != null) {
+            Destroy(go);
+
+            go = GameObject.FindWithTag("YellowEnergy");
+        }
+        go = GameObject.FindWithTag("BlueEnergy");
+        while (go != null)
+        {
+            Destroy(go);
+            go = GameObject.FindWithTag("BlueEnergy");
+        }
+    }*/
 }

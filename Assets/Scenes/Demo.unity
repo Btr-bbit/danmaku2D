@@ -2226,6 +2226,16 @@ Prefab:
       propertyPath: maxSpeed
       value: 0.001
       objectReference: {fileID: 0}
+    - target: {fileID: 114810383518775288, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: rewardNumber.Array.data[0]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114810383518775288, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: rewardNumber.Array.data[1]
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0149f74225bbe1946b17bdaa34b5ceeb, type: 2}
   m_IsPrefabAsset: 0
@@ -3902,11 +3912,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4568326742571710, guid: 6e7c30402976a6544977aab7682c612a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 17.03
+      value: -5.51
       objectReference: {fileID: 0}
     - target: {fileID: 4568326742571710, guid: 6e7c30402976a6544977aab7682c612a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15.1
+      value: -2.88
       objectReference: {fileID: 0}
     - target: {fileID: 4568326742571710, guid: 6e7c30402976a6544977aab7682c612a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4687,6 +4697,16 @@ Prefab:
         type: 2}
       propertyPath: maxSpeed
       value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114810383518775288, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: rewardNumber.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114810383518775288, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: rewardNumber.Array.data[1]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0149f74225bbe1946b17bdaa34b5ceeb, type: 2}
@@ -6645,25 +6665,25 @@ MonoBehaviour:
   generateOnUpdate: 1
   navObstacles:
   - {fileID: 123657780}
-  - {fileID: 1482152153}
-  - {fileID: 121158718}
-  - {fileID: 696994472}
-  - {fileID: 852440612}
-  - {fileID: 1645222709}
-  - {fileID: 1813587837}
-  - {fileID: 2081511275}
-  - {fileID: 657220371}
-  - {fileID: 139979}
-  - {fileID: 1357344575}
   - {fileID: 1578181440}
-  - {fileID: 1955929723}
+  - {fileID: 1357344575}
+  - {fileID: 657220371}
+  - {fileID: 2081511275}
+  - {fileID: 1813587837}
+  - {fileID: 696994472}
+  - {fileID: 1645222709}
+  - {fileID: 1482152153}
   - {fileID: 283965979}
+  - {fileID: 139979}
+  - {fileID: 852440612}
+  - {fileID: 121158718}
   - {fileID: 943620407}
-  - {fileID: 2073481028}
-  - {fileID: 1457878645}
-  - {fileID: 721431763}
-  - {fileID: 831849668}
   - {fileID: 1564205306}
+  - {fileID: 1457878645}
+  - {fileID: 2073481028}
+  - {fileID: 831849668}
+  - {fileID: 1955929723}
+  - {fileID: 721431763}
   inflateRadius: 0.6
   regenerateFlag: 1
 --- !u!1 &965565784
@@ -12894,6 +12914,16 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 967455407}
+    - target: {fileID: 114810383518775288, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: rewardNumber.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114810383518775288, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: rewardNumber.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0149f74225bbe1946b17bdaa34b5ceeb, type: 2}
   m_IsPrefabAsset: 0
@@ -13186,6 +13216,7 @@ MonoBehaviour:
   entrances:
   - {fileID: 1228814836}
   enemyWaves:
+  - {fileID: 910393771}
   - {fileID: 601008756}
   - {fileID: 1773882712}
   - {fileID: 140839515}

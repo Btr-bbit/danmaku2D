@@ -2216,6 +2216,16 @@ Prefab:
       propertyPath: roundTime
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 114500981031067676, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 967455407}
+    - target: {fileID: 114569810577862520, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 0.001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0149f74225bbe1946b17bdaa34b5ceeb, type: 2}
   m_IsPrefabAsset: 0
@@ -3892,11 +3902,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4568326742571710, guid: 6e7c30402976a6544977aab7682c612a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.53
+      value: 17.03
       objectReference: {fileID: 0}
     - target: {fileID: 4568326742571710, guid: 6e7c30402976a6544977aab7682c612a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.91
+      value: 15.1
       objectReference: {fileID: 0}
     - target: {fileID: 4568326742571710, guid: 6e7c30402976a6544977aab7682c612a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4667,6 +4677,16 @@ Prefab:
     - target: {fileID: 1160872422422972, guid: 0149f74225bbe1946b17bdaa34b5ceeb, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114500981031067676, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 967455407}
+    - target: {fileID: 114569810577862520, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 0.001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0149f74225bbe1946b17bdaa34b5ceeb, type: 2}
@@ -6625,25 +6645,25 @@ MonoBehaviour:
   generateOnUpdate: 1
   navObstacles:
   - {fileID: 123657780}
-  - {fileID: 2081511275}
-  - {fileID: 1813587837}
-  - {fileID: 1645222709}
   - {fileID: 1482152153}
-  - {fileID: 943620407}
-  - {fileID: 721431763}
-  - {fileID: 1564205306}
-  - {fileID: 1457878645}
-  - {fileID: 831849668}
-  - {fileID: 139979}
-  - {fileID: 2073481028}
-  - {fileID: 1955929723}
-  - {fileID: 1578181440}
-  - {fileID: 1357344575}
-  - {fileID: 696994472}
-  - {fileID: 657220371}
-  - {fileID: 283965979}
   - {fileID: 121158718}
+  - {fileID: 696994472}
   - {fileID: 852440612}
+  - {fileID: 1645222709}
+  - {fileID: 1813587837}
+  - {fileID: 2081511275}
+  - {fileID: 657220371}
+  - {fileID: 139979}
+  - {fileID: 1357344575}
+  - {fileID: 1578181440}
+  - {fileID: 1955929723}
+  - {fileID: 283965979}
+  - {fileID: 943620407}
+  - {fileID: 2073481028}
+  - {fileID: 1457878645}
+  - {fileID: 721431763}
+  - {fileID: 831849668}
+  - {fileID: 1564205306}
   inflateRadius: 0.6
   regenerateFlag: 1
 --- !u!1 &965565784
@@ -12864,6 +12884,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114569810577862520, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114500981031067676, guid: 0149f74225bbe1946b17bdaa34b5ceeb,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 967455407}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0149f74225bbe1946b17bdaa34b5ceeb, type: 2}
   m_IsPrefabAsset: 0
@@ -13156,7 +13186,6 @@ MonoBehaviour:
   entrances:
   - {fileID: 1228814836}
   enemyWaves:
-  - {fileID: 910393771}
   - {fileID: 601008756}
   - {fileID: 1773882712}
   - {fileID: 140839515}

@@ -35,7 +35,7 @@ public class onBulletHit : MonoBehaviour {
         case "Supply":
             break;
 		default:
-			Debug.Log("onBulletHit.cs: OnTriggerEnter2D(Collider2D),colliderTag:" + collider.name);
+			//Debug.Log("onBulletHit.cs: OnTriggerEnter2D(Collider2D),colliderTag:" + collider.name);
 			break;
 		}
         // if (collider.tag == "Wall" || collider.tag == "Player")

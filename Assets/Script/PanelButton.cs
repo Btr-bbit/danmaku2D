@@ -16,9 +16,11 @@ public class PanelButton : MonoBehaviour {
 
     public void mouseClick() {
         if (gameObject.name == "Restart") {
-            Debug.Log("restart");
+            //Debug.Log("restart");
+            SceneController.instance.switch2Pick();
         } else if (gameObject.name == "Exit") {
-            Debug.Log("exit");
+            SceneController.instance.switch2Title();
+            //Debug.Log("exit");
         }
     }
 }

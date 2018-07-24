@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class LoadingManager : MonoBehaviour {
     public float loadingPercentage = 0.0f, loadingSpeed = 1.0f;
-    GameObject whale;
+    public GameObject whale, percentage;
     Text percentageText;
     private Vector3 whaleInitPosition;
     public Vector3 whaleSpeed;
 
 	// Use this for initialization
 	void Start () {
-        whale = GameObject.Find("whale");
+        //whale = GameObject.Find("whale");
         whaleInitPosition = whale.transform.position;
-        percentageText = GameObject.Find("Canvas").transform.GetChild(0).GetComponent<Text>();
+        //percentageText = GameObject.Find("Canvas").transform.GetChild(0).GetComponent<Text>();
+        percentageText = percentage.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame

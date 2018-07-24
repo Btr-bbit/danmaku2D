@@ -52,6 +52,8 @@ public class Player : MonoBehaviour
     //刚体组件索引
     private Rigidbody2D rigitBody2D;
 
+    public GameObject modelKun, modelPeng;
+
     // Use this for initialization
     public void Start()
     {
@@ -74,6 +76,7 @@ public class Player : MonoBehaviour
 
         rigitBody2D = gameObject.GetComponent<Rigidbody2D>();
         gameObject.GetComponent<HPRecorder>().onHit = new HPRecorder.OnHit(OnHit);
+        initModel();
     }
 
     // Update is called once per frame
@@ -242,5 +245,19 @@ public class Player : MonoBehaviour
     //收到攻击时触发
     void OnHit(float NowHP, float Damage) {
         PlayerState.HP = (int)NowHP;
+    }
+
+    void initModel()
+    {
+        GameObject model;
+        if (GameMode.playerModel == GameMode.PlayerModel.kun) {
+            //model = Instantiate(modelKun);
+            model = Instantiate(modelKun, transform);
+            //model.transform.parent = transform;
+        } else if (GameMode.playerModel == GameMode.PlayerModel.peng) {
+            //model = Instantiate(modelPeng);
+            model = Instantiate(modelPeng, transform);
+            //model.transform.parent = transform;
+        }
     }
 }

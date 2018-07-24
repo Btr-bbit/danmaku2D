@@ -29,6 +29,11 @@ public class PlayerSelect : MonoBehaviour
 	{
         if (Input.GetKey(KeyCode.Return) && !switchedAway)
         {
+            if (gameObject.name == "P1") {
+                GameMode.playerModel = GameMode.PlayerModel.kun;
+            } else if (gameObject.name == "P2") {
+                GameMode.playerModel = GameMode.PlayerModel.peng;
+            }
             SceneController.instance.switch2Game();
             switchedAway = true;
         }

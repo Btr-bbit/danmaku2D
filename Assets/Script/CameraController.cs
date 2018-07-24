@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour {
         if (player != null)
         {
             //transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
-            Vector3 v = Vector3.Lerp(player.transform.position, Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0), 0.003f);
+            Vector3 v = Vector3.Lerp(player.transform.position, Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0), 0.002f);
             v.z = -10;
             transform.position = v;
         }

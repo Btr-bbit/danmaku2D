@@ -37,7 +37,7 @@ public class Move : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (DanmakuManager.IsOutOfBounds(transform))
-            Destroy(gameObject);
+//        if (DanmakuManager.IsOutOfBounds(transform))
+//            Destroy(gameObject);
 	}
 }
